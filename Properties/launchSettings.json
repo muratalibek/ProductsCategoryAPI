@@ -16,7 +16,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DATABASE_NAME": "ProductsDB",
-        "CATEGORIES_COLLECTION_NAME": "Categories"
+        "CATEGORIES_COLLECTION_NAME": "Categories",
+        "PRODUCT_COLLECTION_NAME": "Products"
       }
     },
     "ProductsCategoryAPI": {
@@ -28,7 +29,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DATABASE_NAME": "ProductsDB",
-        "CATEGORIES_COLLECTION_NAME": "Categories"
+        "CATEGORIES_COLLECTION_NAME": "Categories",
+        "PRODUCT_COLLECTION_NAME": "Products"
       }
     }
   }

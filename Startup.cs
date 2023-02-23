@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProductsCategoryAPI.Data;
 using ProductsCategoryAPI.Services.CategoryService;
+using ProductsCategoryAPI.Services.ProductBuildService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace ProductsCategoryAPI
             services.Configure<Data.DataContext>(Configuration);
 
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddScoped<IProductBuildService, ProductBuildService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
