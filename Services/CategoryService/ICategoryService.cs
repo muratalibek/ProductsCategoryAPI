@@ -9,5 +9,6 @@ namespace ProductsCategoryAPI.Services.CategoryService
         List<Categories> GetAllCategories();
         Categories AddCategory(Categories category);
         void DeleteCategory(string id);
+        Task<List<Categories>> SearchByPropertyAsync(string categoryName, string value);
     }
 }

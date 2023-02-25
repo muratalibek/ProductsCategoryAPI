@@ -2,6 +2,7 @@
 using ProductsCategoryAPI.Data;
 using ProductsCategoryAPI.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace ProductsCategoryAPI.Services.ProductBuildService
@@ -12,6 +13,11 @@ namespace ProductsCategoryAPI.Services.ProductBuildService
         public ProductBuildService(IDbClient dbClient)
         {
             _productCollection = dbClient.GetProductCollection();
+        }
+        public async Task<List<ProductBuild>> SearchByPropertyAsync(string productName, string value)
+        {
+            var filter = Builders<ProductBuild>.Filter.Eq(productName, value);
+            return await _productCollection.Find(filter).ToListAsync();
         }
         public List<ProductBuild> GetAllProducts()
         {

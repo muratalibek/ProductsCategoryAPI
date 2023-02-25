@@ -18,6 +18,11 @@ namespace ProductsCategoryAPI.Services.CategoryService
         {
             return _categories.Find(x => true).ToList();
         }
+        public async Task<List<Categories>> SearchByPropertyAsync(string categoryName, string value)
+        {
+            var filter = Builders<Categories>.Filter.Eq(categoryName, value);
+            return await _categories.Find(filter).ToListAsync();
+        }
         public Categories AddCategory(Categories category)
         {
             _categories.InsertOne(category);

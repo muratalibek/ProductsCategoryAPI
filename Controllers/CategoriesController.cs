@@ -23,11 +23,16 @@ namespace ProductsCategoryAPI.Controllers
         {
             return Ok(_categoryService.GetAllCategories());
         }
-
-        [HttpPost]
+        [HttpGet("{categoryName}")]
+        public async Task<IActionResult> ListByPropertyResult(string categoryName, string value)
+        {
+            var results = await _categoryService.SearchByPropertyAsync(categoryName, value);
+            return Ok(results);
+        }
+        [HttpPost("categoryroute")]
         public IActionResult CategoryAddition(Categories category)
         {
-            category.Id = ObjectId.GenerateNewId().ToString();// Geneartes Id
+            category.Id = ObjectId.GenerateNewId().ToString();
             _categoryService.AddCategory(category);
             return CreatedAtRoute("GetCategory", new { id = category.Id }, category);
         }

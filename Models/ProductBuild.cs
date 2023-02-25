@@ -1,10 +1,12 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System.Text.Json.Serialization;
 
 namespace ProductsCategoryAPI.Models
 {
     public class ProductBuild
     {
+        [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string ProductName { get; set; }
