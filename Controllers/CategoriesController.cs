@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProductsCategoryAPI.Controllers
 {
+    /// <summary>
+    /// На странице категорий товара должен выводится список категорий, с возможностью добавлять новую или удалить существующую категорию. 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -34,7 +37,7 @@ namespace ProductsCategoryAPI.Controllers
         {
             category.Id = ObjectId.GenerateNewId().ToString();
             _categoryService.AddCategory(category);
-            return CreatedAtRoute("GetCategory", new { id = category.Id }, category);
+            return Ok(new { id = category.Id });
         }
 
         [HttpDelete("{id}")]
